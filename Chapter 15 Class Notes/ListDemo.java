@@ -8,28 +8,85 @@ public class ListDemo
 {
    public static void main(String[] args)
    {
-
-
-      // | in the comments indicates the iterator position
-
-					// |DHRT
-       				// D|HRT
-      				// DH|RT
-
-      // Add more elements after second element
-
-      				// DHJ|RT
-      				// DHJN|RT
-
-      				// DHJNR|T
-
-      // Remove last traversed element
-
-      				// DHJN|T
-
-      // Print all elements
-
+      // the addLast method of LinkedList can be used to populate a list
+      LinkedList<String> staff = new LinkedList<>();
+      staff.addLast("Diana");
+      staff.addLast("Harry");
+      staff.addLast("Romeo");
+      staff.addLast("Tom");
+      
+      // the list is currently: DHRT
+      
+      /*
+       * listIterator method creates a new iterator that is positioned at the front of the list 
+       * the "|" in the comment indicates the iterator position
+       */
+      ListIterator<String> iterator = staff.listIterator(); // |DHRT
+      
+      /*
+       * the next method advances the iterator over the next element in the list
+       */
+      iterator.next(); // D|HRT
+      
+      
+      /*
+       * the next method also returns the element that the iterator is passing
+       */
+      String name = iterator.next(); //DH|RT
+      System.out.println(name);
+      System.out.println("Expected: Harry" );
+      
+      /*
+       * the add method inserts an element at the iterator position
+       *    the iterator is then posititioned after the element that was added
+       */
+      iterator.add("Juliet"); //DHJ|RT
+      iterator.add("Nina"); //DHJN|RT
+      
+      /*
+       * the remove method removes the element returned by the alst call to next or previous
+       * the remove method can only be called once after calling next or previous
+       * cannot be called after calling ADD
+       */
+      iterator.next(); //DHJNR|T
+      iterator.remove(); //DHJN|T
+      
+      
       System.out.println(staff);
       System.out.println("Expected: [Diana, Harry, Juliet, Nina, Tom]");
+      
+      
+      
+      /*
+       * the set method updates the element returned by the alst call to next or previous
+       */
+      iterator.previous(); //DHJ|NT
+      iterator.set("Albert"); //DHJ|AT
+      
+      
+      /*
+       * the hasNext method is often used in the context of a while loop
+       */
+      iterator = staff.listIterator(); //|DHJAT
+      while (iterator.hasNext() )
+      {
+          String n = iterator.next();
+          if (n.equals("Juliet"))
+          {
+              iterator.remove(); //
+            }
+        }
+        
+        /*
+         * enhanced for loops work with linked lists becuase they implement the List nterface
+         * 
+         */
+        
+      for (String n : staff)
+      {
+          System.out.print( n + " ");
+        }
+      System.out.println();
+      System.out.println("Expected: DHAT" );
    }
 }
