@@ -1,5 +1,5 @@
 package Reverse;
-
+import java.util.ListIterator;
 import java.util.LinkedList;
 
 /**
@@ -13,6 +13,6 @@ public class ListUtil
    */
    public static void reverse(LinkedList<String> strings)
    {
-      ...
+      for (int it = 
    }
 }
