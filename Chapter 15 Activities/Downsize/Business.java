@@ -20,7 +20,7 @@ public class Business
         for (number = 1; number <= x; number++)
         {
             iterator.next();
-            if( number%n == 0)
+            if( number % n == 0)
             {
                 iterator.remove();
             }
