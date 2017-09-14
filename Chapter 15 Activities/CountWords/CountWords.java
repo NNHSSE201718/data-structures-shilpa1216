@@ -20,7 +20,7 @@ public class CountWords
       {
 
          // Create your TreeSet here
-         . . .
+         
 
          int numWords = 0;
          while (in.hasNext())
@@ -32,7 +32,7 @@ public class CountWords
 
          }
 
-         // Print the words
+         
          . . .
          System.out.println("Number of words: " + numWords);
          // Print the size of the resulting set
