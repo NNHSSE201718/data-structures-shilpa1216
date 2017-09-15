@@ -28,15 +28,15 @@ public class CountWords
             String word = clean(in.next());
             numWords++;
             // Add the word to the set here
-            . . .
+            uniqueWords.add(word);
 
          }
 
          
-         . . .
+         
          System.out.println("Number of words: " + numWords);
-         // Print the size of the resulting set
-         . . .
+         System.out.println("
+         
 
       }
       catch (FileNotFoundException e)

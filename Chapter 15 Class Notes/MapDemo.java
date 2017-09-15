@@ -4,23 +4,35 @@ import java.util.Map;
 import java.util.Set;
 
 /**
-   This program demonstrates a map that maps names to colors.
-*/
+This program demonstrates a map that maps names to colors.
+ */
 public class MapDemo
 {
-   public static void main(String[] args)
-   {
-	   //create Map: favoriteColors
+    public static void main(String[] args)
+    {
+        //create Map: favoriteColors
 
+      
+        /*
+         * The Map interface is a eneric. The first type is the type of the key; 
+         *   the second, the type of the value
+         *   
+         */
+        Map<String, Color> favoriteColors = new HashMap<>();
 
-	  //create Set<String> keySet
+        favoriteColors.put("Isha", Color.BLUE);
+        favoriteColors.put("Adam", Color.ORANGE);
+        favoriteColors.put("Aidan", Color.WHITE);
+        favoriteColors.put("Shilpa", Color.CYAN);
+        favoriteColors.put("Handa", Color.BLUE);
 
-      // Print all keys and values in the map
+        //create Set<String> keySet
+        Set<String> keySet = favoriteColors.keySet();
+        // Print all keys and values in the map
 
-
-      for ()
-      {
-
-      }
-   }
+        for (String key : keySet)
+        {
+            System.out.println( key + ": " + favoriteColors.get( key )); 
+        }
+    }
 }
