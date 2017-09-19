@@ -14,26 +14,39 @@ public class StringLengthMap
 {
    public static void main(String[] args)
    {
-      String filename = "test1.txt";
-
+      String filename = "StringLengthMap/test1.txt";
       try (Scanner in = new Scanner(new File(filename)))
       {
-
+         
+         Map<Integer, String> words = new HashMap<>();
+         
+         
          // Create your map here
-         . . .
+         
 
          while (in.hasNext())
          {
             String word = clean(in.next());
             Integer len = word.length();
-
+            
+            String str = words.get(len);
+             if (str == null)
+             {
+                 str = word;
+                }
+                else
+                {
+                str = str + ", " + word;
+            }
+            words.put(len,str);
             // Update the map here
             // Use the Java 8 merge() method
-            . . .
+            
 
 
          }
-
+         
+         
          // Print the strings, in increasing order of their length
          // Use this format: 1: i, a, i
       }

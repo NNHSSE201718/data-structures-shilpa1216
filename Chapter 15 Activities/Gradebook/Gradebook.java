@@ -48,7 +48,7 @@ public class Gradebook
                 {
                     if (key.equals(mod_name))
                     {
-                        System.out.println("Grade:");
+                        System.out.println("What is their grade? ");
                         String mod_grade = in.next().toUpperCase();
                         grades.put(mod_name, mod_grade);
                     }
