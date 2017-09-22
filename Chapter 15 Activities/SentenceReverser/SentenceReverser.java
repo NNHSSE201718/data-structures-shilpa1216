@@ -18,7 +18,11 @@ public class SentenceReverser
       // Complete this method. Use a Stack.
       ...
 
-
+      while(scanner.hasNext())
+      {
+         
+          
+        }
 
 
 

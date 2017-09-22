@@ -1,5 +1,5 @@
 package ToDoList;
-
+import java.lang.Integer;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 /**
@@ -10,84 +10,81 @@ import java.util.Scanner;
  * the program removes and prints the most urgent task. 
  * The quit command quits the program. 
  * Use a priority queue in your solution.
-*/
+ */
 public class ToDoList
 {
-   // Instance variable(s)
-   . . .
+    // Instance variable(s)
+    PriorityQueue<Task> todo;
 
-   /**
-      Constructor
-   */
-   public ToDoList()
-   {
-      // Complete this
-      . . .
-   }
+    /**
+    Constructor
+     */
+    public ToDoList()
+    {
+        // Complete this
+        this.todo = todo;
+    }
 
-   /**
-    * Display a menu and accepts commands.
-    */
-   public void run()
-   {
-      String option = "";
-      System.out.println("To Do List - Please enter an option");
-      System.out.println("  add priority description (add a new task)");
-      System.out.println("  next (remove and print most urgent task)");
-      System.out.println("  quit (exit this program)");
-      System.out.println();
-      
-      Scanner in = new Scanner(System.in);
-      
-      do
-      {
-         System.out.print("> ");
-         option = in.nextLine();
-         if (option.startsWith("add"))
-         {
-            addTask(option);
-         }
-         else if (option.equals("next"))
-         {
-            nextTask();
-         }
-      } 
-      while (! option.equals("quit"));
-   }
-   
-   /**
-    * Parse the add option line.
-    * @param optionStr the option line
-   */
-   public void addTask(String optionStr)
-   {
-      // Complete this method
-      . . .
-         
-         
-         
-         
-   }
+    /**
+     * Display a menu and accepts commands.
+     */
+    public void run()
+    {
+        String option = "";
+        System.out.println("To Do List - Please enter an option");
+        System.out.println("  add priority description (add a new task)");
+        System.out.println("  next (remove and print most urgent task)");
+        System.out.println("  quit (exit this program)");
+        System.out.println();
 
-   /**
-      Get the next highest priority task and 
-      display the description to the user.
-   */
-   public void nextTask()
-   {
-      Task next = null;
-      
-      // Complete this method
-      . . .
-      
-      
-      if (next == null)
-      {
-         System.out.println("There are no tasks in the list.");
-      }
-      else
-      {
-         System.out.println(next.getDescription());
-      }
-   }
+        Scanner in = new Scanner(System.in);
+
+        do
+        {
+            System.out.print("> ");
+            option = in.nextLine();
+            if (option.startsWith("add"))
+            {
+                addTask(option);
+            }
+            else if (option.equals("next"))
+            {
+                nextTask();
+            }
+        } 
+        while (! option.equals("quit"));
+    }
+
+    /**
+     * Parse the add option line.
+     * @param optionStr the option line
+     */
+    public void addTask(String optionStr)
+    {
+        // Complete this method
+        int priority = Integer.parseInt(optionStr.substring(4,5));
+        String description = optionStr.substring(5);
+        this.todo.add(new Task(priority, description));
+    }
+
+    /**
+    Get the next highest priority task and 
+    display the description to the user.
+     */
+    public void nextTask()
+    {
+        Task next = null;
+        while ()
+        {
+            
+        }
+        if (next == null)
+        {
+            System.out.println("There are no tasks in the list.");
+        }
+        else
+        {
+            System.out.println(next.getDescription());
+        }
+    }
 }
