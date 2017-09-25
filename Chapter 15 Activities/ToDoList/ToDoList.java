@@ -22,7 +22,7 @@ public class ToDoList
     public ToDoList()
     {
         // Complete this
-        this.todo = todo;
+        todo = new PriorityQueue<>();
     }
 
     /**
@@ -64,7 +64,7 @@ public class ToDoList
         // Complete this method
         int priority = Integer.parseInt(optionStr.substring(4,5));
         String description = optionStr.substring(5);
-        this.todo.add(new Task(priority, description));
+        todo.add(new Task(priority, description));
     }
 
     /**
@@ -73,18 +73,15 @@ public class ToDoList
      */
     public void nextTask()
     {
-        Task next = null;
-        while ()
-        {
-            
-        }
-        if (next == null)
+        
+        if (todo.peek() == null)
         {
             System.out.println("There are no tasks in the list.");
         }
         else
         {
-            System.out.println(next.getDescription());
+            System.out.println(todo.peek().getDescription());
+            todo.remove();
         }
     }
 }

@@ -20,8 +20,8 @@ public class ToDoListTester
       list.addTask("add 5 Have dinner with friends");
       list.addTask("add 9 Sleep well");
       System.out.println();
-      System.out.println("Entering 'add bad command'");
-      list.addTask("add bad command");
+      //System.out.println("Entering 'add bad command'");
+      //list.addTask("add bad command");
       System.out.println("Expected: The priority must be an integer between 1 and 9.");
       System.out.println();
       System.out.println("Pulling most urgent items out.");

@@ -49,7 +49,13 @@ public class Driveway
    {
       // Complete this method
       ...
-
+      while (street.size > 0)
+      {
+         currentPlate = street.pop();
+         driveway.push(currentPlate);
+         print();
+        }
+        
 
    }
 

@@ -1,24 +1,15 @@
 #BlueJ package file
-dependency1.from=ToDoListTester
-dependency1.to=ToDoList
-dependency1.type=UsesDependency
-dependency2.from=ToDoListDemo
-dependency2.to=ToDoList
-dependency2.type=UsesDependency
-dependency3.from=ToDoList
-dependency3.to=Task
-dependency3.type=UsesDependency
 objectbench.height=134
 objectbench.width=760
 package.divider.horizontal=0.6
 package.divider.vertical=0.718562874251497
 package.editor.height=353
 package.editor.width=670
-package.editor.x=860
-package.editor.y=20
+package.editor.x=-32000
+package.editor.y=-32000
 package.frame.height=600
 package.frame.width=800
-package.numDependencies=3
+package.numDependencies=0
 package.numTargets=4
 package.showExtends=true
 package.showUses=true
