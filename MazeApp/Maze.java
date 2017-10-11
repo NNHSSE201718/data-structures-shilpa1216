@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileNotFoundException;
 import java.util.InputMismatchException;
+import java.util.ArrayList;
 /**
  * Write a description of class Maze here.
  *
@@ -24,27 +25,49 @@ public class Maze
     public boolean loadMaze(String fname) 
     {
         try {
-        File file = new File(fname);
-        Scanner s = new Scanner(file);
-        int numRows = s.nextInt();
-        int numCols = s.nextInt();
-        this.maze = new Square[numRows][numCols];
+            File file = new File(fname);
+            Scanner s = new Scanner(file);
+            int numRows = s.nextInt();
+            int numCols = s.nextInt();
+            this.maze = new Square[numRows][numCols];
 
-        for (int row=0; row < numRows; row++) {
-            for (int col=0; col < numCols; col++) {
-                maze[row][col] = null;
+            for (int row=0; row < numRows; row++) {
+                for (int col=0; col < numCols; col++) {
+                    maze[row][col] = null;
+                }
             }
+            return true;
         }
-        return true;
+        catch (FileNotFoundException e)
+        {
+            return false;
+        }
+        catch (InputMismatchException i)
+        {
+            System.out.println("Incorrect file");
+            return false;
+        }
     }
-    catch (FileNotFoundException e)
+    
+    public ArrayList<Square> getNeighbors(Square sq)
     {
-        return false;
+        ArrayList<Square> neighbors = new ArrayList<Square>();
+        if (sq.getRow() <  maze[0].size()-1 )
+        {
+            
+        }
+        else
+        
+        return 
     }
-    catch (InputMismatchException i)
+    
+    public Square getStart()
     {
-        System.out.println("Incorrect file");
-        return false;
+        return ;
     }
+    
+    public Square getFinish()
+    {
+        return ;
     }
 }
