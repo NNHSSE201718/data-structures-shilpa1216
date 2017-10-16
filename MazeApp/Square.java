@@ -11,7 +11,7 @@ public class Square
     private int type;
     private int row;
     private int col;
-
+    private int isExplored = 1;
     /**
      * Constructor for objects of class Square
      */
@@ -21,6 +21,7 @@ public class Square
         this.type = type;
         this.row = row;
         this.col = col;
+
     }
 
     public int getRow()
@@ -40,6 +41,26 @@ public class Square
 
     public String toString()
     {
-        return "empty space (0) \n # - wall (1) \n S - Start (2) \n E - Exit (3) \n \n o - is on the solver work list- has been explored \n x - is on the final path to the exit";
+        if (this.type == 0)
+        {
+            return "_";
+        }
+        else if (this.type == 1)
+        {
+            return "#";
+        }
+        else if (this.type == 2)
+        {
+            return "S";
+        }
+        else 
+        {
+            return "E";
+        }
+    }
+
+    public void reset()
+    {
+        this.isExplored = 1;
     }
 }

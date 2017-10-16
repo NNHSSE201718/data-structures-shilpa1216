@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import java.util.ArrayList;
 
 /**
  * The test class MazeTest.
@@ -39,5 +40,55 @@ public class MazeTest
     @After
     public void tearDown()
     {
+        
     }
+    
+    @Test
+    public void testLoadMaze()
+    {
+        Maze maze = new Maze();
+        assertEquals(true, maze.loadMaze("maze-2"));
+    }
+    
+    @Test
+    public void testLoadMaze2()
+    {
+        Maze maze = new Maze();
+        assertEquals(false, maze.loadMaze("tyrone"));
+    }
+    
+    @Test
+    public void testFinish()
+    {
+        Maze maze = new Maze();
+        maze.loadMaze("maze-2");
+        assertEquals(3,maze.getFinish().getType());
+        
+    }
+    
+    @Test
+    public void testStart()
+    {
+        Maze maze = new Maze();
+        maze.loadMaze("maze-2");
+        assertEquals(2,maze.getStart().getType());
+    }
+    
+    @Test
+    public void testGetNeighbors()
+    {
+        Maze maze = new Maze();
+        maze.loadMaze("maze-2");
+        ArrayList<Square> neighbors = new ArrayList();
+        
+        neighbors.add(new Square(1,2,0));
+        neighbors.add(new Square(2,3,0));
+        neighbors.add(new Square(3,2,0));
+        neighbors.add(new Square(2,1,1));
+        
+        assertEquals(neighbors, maze.getNeighbors(new Square(2,2,0)));
+        
+    }
+    
+
 }

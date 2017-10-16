@@ -13,7 +13,8 @@ import java.util.ArrayList;
 public class Maze
 {
     // instance variables - replace the example below with your own
-    private int x;
+    private Square start;
+    private Square exit;
     Square[][] maze;
 
     /**
@@ -36,6 +37,7 @@ public class Maze
                     maze[row][col] = null;
                 }
             }
+
             return true;
         }
         catch (FileNotFoundException e)
@@ -48,26 +50,86 @@ public class Maze
             return false;
         }
     }
-    
+
     public ArrayList<Square> getNeighbors(Square sq)
     {
         ArrayList<Square> neighbors = new ArrayList<Square>();
-        if (sq.getRow() <  maze[0].size()-1 )
+        int row = sq.getRow();
+        int col = sq.getCol();
+
+        if (!(row == 0))
         {
-            
+            neighbors.add(maze[row-1][col]);
         }
-        else
-        
-        return 
+
+        if (!(col == maze[0].length))
+        {
+            neighbors.add(maze[row][col+1]);
+        }
+
+        if (!(row == maze.length))
+        {
+            neighbors.add(maze[row+1][col]);
+        }
+
+        if (!(col == 0))
+        {
+            neighbors.add(maze[row][col-1]);
+        }
+
+        return neighbors;
     }
-    
+
     public Square getStart()
     {
-        return ;
+        for (int row=0; row < maze.length; row++) {
+            for (int col=0; col < maze[0].length; col++) {
+
+                if (maze[row][col].getType() == 2)
+                {
+                    start = maze[row][col];
+                }
+            }
+        }
+
+        return start;
     }
-    
+
     public Square getFinish()
     {
-        return ;
+        for (int row=0; row < maze.length; row++) {
+            for (int col=0; col < maze[0].length; col++) {
+
+                if (maze[row][col].getType() == 3)
+                {
+                    exit = maze[row][col]; 
+                }
+            }
+        }
+        return exit;
     }
+
+    public void reset()
+    {
+        for (int row=0; row < maze.length; row++) 
+        {
+            for (int col=0; col < maze[0].length; col++) {
+                maze[row][col].reset();
+            }
+        }
+    }
+
+    public String toString()
+    {
+        String toReturn = "";
+        for (int row=0; row < maze.length; row++) 
+        {
+            for (int col=0; col < maze[0].length; col++) {
+                toReturn = toReturn + maze[row][col].toString();
+            }
+        }
+        return toReturn;
+    }
+
 }
+
