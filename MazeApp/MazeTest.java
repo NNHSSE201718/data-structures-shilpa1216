@@ -54,7 +54,7 @@ public class MazeTest
     public void testLoadMaze2()
     {
         Maze maze = new Maze();
-        assertEquals(false, maze.loadMaze("tyrone"));
+        assertEquals(false, maze.loadMaze("shilpa"));
     }
     
     @Test
@@ -86,9 +86,10 @@ public class MazeTest
         neighbors.add(new Square(3,2,0));
         neighbors.add(new Square(2,1,1));
         
+        
         assertEquals(neighbors, maze.getNeighbors(new Square(2,2,0)));
         
     }
-    
 
+    
 }

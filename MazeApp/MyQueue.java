@@ -10,11 +10,11 @@ import java.util.LinkedList;
 public class MyQueue<T> implements QueueADT<T> 
 {
     // instance variables - replace the example below with your own
-    LinkedList list = new LinkedList();
-    
-    public MyQueue(LinkedList list)
+    private Node<T> first;
+    private int size;
+    public MyQueue()
     {
-        this.list = list;
+        first = null;
     }
 
     /**
@@ -22,35 +22,57 @@ public class MyQueue<T> implements QueueADT<T>
      */
     public void enqueue(T item)
     {
-        list.add(item);
+        Node<T> newNode = new Node<>();
+        newNode.data = item;
+        newNode.next = this.first;
+        this.first = newNode;
+        size++;
     }
 
     public T dequeue() throws NoSuchElementException
     {
-        
+        Node<T> n = new Node();
+        n = this.first;
+        while (n.next.next != null)
+        {
+            n = n.next;
+        } 
+        Node<T> end = n.next;
+        n.next = null;
+        return end.data;
     }
-    
+
     public T front() throws NoSuchElementException
     {
-        list.peek();
+        Node<T> n = new Node();
+        n = this.first;
+        while (n.next != null)
+        {
+            n = n.next;
+        } 
+
+        return n.data;
     }
-    
+
     public int size()
     {
-        return list.size();
+        return this.size;
     }
-    
+
     public boolean isEmpty()
     {
-        return list.isEmpty();
+        return first == null;
     }
-    
+
     public void clear()
     {
-        for (int i = 0; i < list.size(); i++)
-        {
-            list.remove(i);
-        }
+        this.first = null;
+        this.size = 0;
     }
-    
+
+}
+class Node<T> 
+{
+    public T data;
+    public Node next;
 }

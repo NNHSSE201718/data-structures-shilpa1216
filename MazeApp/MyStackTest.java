@@ -44,7 +44,7 @@ public class MyStackTest
     public void testIsEmpty()
     {
         ArrayList list = new ArrayList();
-        MyStack stack = new MyStack(list);
+        MyStack stack = new MyStack();
         stack.push(new Square(2,2,0));
 
         assertEquals(false,stack.isEmpty());
@@ -54,7 +54,7 @@ public class MyStackTest
     public void testPop()
     {
         ArrayList list = new ArrayList();
-        MyStack stack = new MyStack(list);
+        MyStack stack = new MyStack();
         stack.push(new Square(2,2,0));
         Square sq = new Square(2,2,2);
         stack.push(sq);
@@ -66,7 +66,7 @@ public class MyStackTest
     public void testTop()
     {
         ArrayList list = new ArrayList();
-        MyStack stack = new MyStack(list);
+        MyStack stack = new MyStack();
         stack.push(new Square(2,2,0));
         stack.push(new Square(2,5,2));
         stack.push(new Square(3,1,7));
@@ -81,7 +81,7 @@ public class MyStackTest
     public void testSize()
     {
         ArrayList list = new ArrayList();
-        MyStack stack = new MyStack(list);
+        MyStack stack = new MyStack();
         stack.push(new Square(2,2,0));
         stack.push(new Square(2,5,2));
         stack.push(new Square(3,1,7));
@@ -93,13 +93,13 @@ public class MyStackTest
     public void testClear()
     {
         ArrayList list = new ArrayList();
-        MyStack stack = new MyStack(list);
+        MyStack stack = new MyStack();
         stack.push(new Square(2,2,0));
         stack.push(new Square(2,5,2));
         stack.push(new Square(3,1,7));
         stack.clear();
 
-        assertEquals(true, stack.isEmpty());
+        assertEquals(0, stack.size());
     }
 
 }

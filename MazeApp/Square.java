@@ -63,4 +63,11 @@ public class Square
     {
         this.isExplored = 1;
     }
+    
+        
+    public boolean equals(Square sq)
+    {
+        return (sq.getRow() == this.getRow() && sq.getCol() == this.getCol() && sq.getType() == this.getType());
+        
+    }
 }

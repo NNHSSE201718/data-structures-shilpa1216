@@ -15,10 +15,10 @@ public class MyStack<T> implements StackADT<T>
     /**
      * Constructor for objects of class MyStack
      */
-    public MyStack(ArrayList list) 
+    public MyStack() 
     {
         // initialise instance variables
-        this.arrayList = list;
+        arrayList = new ArrayList();
     }
 
     public boolean isEmpty()
@@ -33,7 +33,6 @@ public class MyStack<T> implements StackADT<T>
 
     public T pop() throws NoSuchElementException
     {
-        
         return arrayList.remove(arrayList.size()-1);
     } 
 
@@ -49,10 +48,8 @@ public class MyStack<T> implements StackADT<T>
 
     public void clear()
     {
-        for( int i = 0; i < arrayList.size(); i++)
-        {
-            arrayList.remove(i);
-        }
+        ArrayList list2 = new ArrayList();
+        arrayList = list2;
     }
     
 }
