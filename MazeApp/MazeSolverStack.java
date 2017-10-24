@@ -17,12 +17,6 @@ public class MazeSolverStack extends MazeSolver
     {
        super(maze);
     }
-
-    
-    public void init()
-    {
-        stack = new MyStack<>();
-    }
     
     public void makeEmpty()
     {
@@ -44,10 +38,4 @@ public class MazeSolverStack extends MazeSolver
         return stack.pop();
     }
 
-    
-    
-    
-    
-    
-    
 }

@@ -8,7 +8,6 @@ import java.util.ArrayList;
 public abstract class MazeSolver
 {
     // instance variables - replace the example below with your own
-    abstract void init();
     Maze maze = new Maze();
     private boolean isSolved;
     MazeSolver (Maze maze)
@@ -16,12 +15,9 @@ public abstract class MazeSolver
         this.maze = maze;
         this.isSolved = false;
         makeEmpty();
-        init();
         add(maze.getStart());
-        
-    }
 
-    
+    }
 
     abstract void makeEmpty();
 
@@ -41,10 +37,8 @@ public abstract class MazeSolver
             return false;
     }
 
-    public String getPath()
-    {
+    public String getPath(){
         String s = "";
-
         s+= maze.getStart().getRow()+maze.getStart().getCol();
         while (!isEmpty())
         {

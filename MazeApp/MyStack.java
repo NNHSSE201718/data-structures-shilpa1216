@@ -32,9 +32,20 @@ public class MyStack<T> implements StackADT<T>
     }
 
     public T pop() throws NoSuchElementException
-    {
-        return arrayList.remove(arrayList.size()-1);
-    } 
+    {        
+        T topOfStack = null;
+        if (!isEmpty()) 
+        {
+            topOfStack = arrayList.remove(arrayList.size()-1);
+        }
+        else
+        {
+            throw new NoSuchElementException ("Pop attempted on an empty");
+        }
+
+        return topOfStack;
+
+    }
 
     public T top()
     {
@@ -46,9 +57,9 @@ public class MyStack<T> implements StackADT<T>
         {
             throw new NoSuchElementException();
         }
-        
-    }  
-    
+
+    } 
+
     public int size()
     {
         return arrayList.size();
@@ -59,5 +70,5 @@ public class MyStack<T> implements StackADT<T>
         ArrayList list2 = new ArrayList();
         arrayList = list2;
     }
-    
+
 }
