@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileNotFoundException;
 import java.util.InputMismatchException;
+import java.util.ArrayList;
 /**
  * Write a description of class Maze here.
  *
@@ -12,7 +13,8 @@ import java.util.InputMismatchException;
 public class Maze
 {
     // instance variables - replace the example below with your own
-    private int x;
+    private Square start;
+    private Square exit;
     Square[][] maze;
 
     /**
@@ -24,27 +26,114 @@ public class Maze
     public boolean loadMaze(String fname) 
     {
         try {
-        File file = new File(fname);
-        Scanner s = new Scanner(file);
-        int numRows = s.nextInt();
-        int numCols = s.nextInt();
-        this.maze = new Square[numRows][numCols];
+            File file = new File(fname);
+            Scanner s = new Scanner(file);
+            int numRows = s.nextInt();
+            int numCols = s.nextInt();
+            this.maze = new Square[numRows][numCols];
 
-        for (int row=0; row < numRows; row++) {
-            for (int col=0; col < numCols; col++) {
-                maze[row][col] = null;
+            for (int row=0; row < numRows; row++) {
+                for (int col=0; col < numCols; col++) {
+                    maze[row][col] = new Square(row, col, s.nextInt());
+                }
+            }
+
+            return true;
+        }
+        catch (FileNotFoundException e)
+        {
+            return false;
+        }
+        catch (InputMismatchException i)
+        {
+            System.out.println("Incorrect file");
+            return false;
+        }
+    }
+
+    public ArrayList<Square> getNeighbors(Square sq)
+    {
+        ArrayList<Square> neighbors = new ArrayList<Square>();
+        int row = sq.getRow();
+        int col = sq.getCol();
+
+        if (!(row == 0))
+        {
+            neighbors.add(maze[row-1][col]);
+        }
+
+        if (!(col == maze[0].length))
+        {
+            neighbors.add(maze[row][col+1]);
+        }
+
+        if (!(row == maze.length))
+        {
+            neighbors.add(maze[row+1][col]);
+        }
+
+        if (!(col == 0))
+        {
+            neighbors.add(maze[row][col-1]);
+        }
+
+        return neighbors;
+    }
+
+    public Square getStart()
+    {
+        for (int row=0; row < maze.length; row++) {
+            for (int col=0; col < maze[0].length; col++) {
+                if (maze[row][col].getType() == 2)
+                {
+                    return maze[row][col];                    
+                }
             }
         }
-        return true;
+        return null;
     }
-    catch (FileNotFoundException e)
+
+    public Square getFinish()
     {
-        return false;
+        for (int row=0; row < maze.length; row++) {
+            for (int col=0; col < maze[0].length; col++) {
+
+                if (maze[row][col].getType() == 3)
+                {
+                    return maze[row][col]; 
+                }
+            }
+        }
+        return null;
     }
-    catch (InputMismatchException i)
+
+    public void reset()
     {
-        System.out.println("Incorrect file");
-        return false;
+        for (int row=0; row < maze.length; row++) 
+        {
+            for (int col=0; col < maze[0].length; col++) {
+                if (maze[row][col].getType() == 4  || maze[row][col].getType() == 5 || 
+                maze[row][col].getType() == 6) 
+                {
+                    maze[row][col] = new Square (row, col, 0);
+                }
+            }
+        }
     }
+
+    public String toString()
+    {
+        String toReturn = "";
+        for (int row=0; row < maze.length; row++) 
+        {
+            for (int col=0; col < maze[0].length; col++) {
+                toReturn = toReturn + maze[row][col].toString();
+            }
+            toReturn+= "\n";
+        }
+        return toReturn;
     }
+    
+    
 }
+
