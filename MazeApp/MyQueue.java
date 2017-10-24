@@ -31,15 +31,23 @@ public class MyQueue<T> implements QueueADT<T>
 
     public T dequeue() throws NoSuchElementException
     {
-        Node<T> n = new Node();
-        n = this.first;
-        while (n.next.next != null)
+        if(this.first != null)
         {
-            n = n.next;
-        } 
-        Node<T> end = n.next;
-        n.next = null;
-        return end.data;
+
+            Node<T> n = new Node();
+            n = this.first;
+            while (n.next.next != null)
+            {
+                n = n.next;
+            } 
+            Node<T> end = n.next;
+            n.next = null;
+            return end.data;
+        }
+        else
+        {
+            throw new NoSuchElementException();
+        }
     }
 
     public T front() throws NoSuchElementException
@@ -61,7 +69,7 @@ public class MyQueue<T> implements QueueADT<T>
 
     public boolean isEmpty()
     {
-        return first == null;
+        return this.size == 0;
     }
 
     public void clear()

@@ -34,7 +34,7 @@ public class Maze
 
             for (int row=0; row < numRows; row++) {
                 for (int col=0; col < numCols; col++) {
-                    maze[row][col] = null;
+                    maze[row][col] = new Square(row, col, s.nextInt());
                 }
             }
 
@@ -84,15 +84,13 @@ public class Maze
     {
         for (int row=0; row < maze.length; row++) {
             for (int col=0; col < maze[0].length; col++) {
-
                 if (maze[row][col].getType() == 2)
                 {
-                    start = maze[row][col];
+                    return maze[row][col];                    
                 }
             }
         }
-
-        return start;
+        return null;
     }
 
     public Square getFinish()
@@ -102,11 +100,11 @@ public class Maze
 
                 if (maze[row][col].getType() == 3)
                 {
-                    exit = maze[row][col]; 
+                    return maze[row][col]; 
                 }
             }
         }
-        return exit;
+        return null;
     }
 
     public void reset()
@@ -114,7 +112,11 @@ public class Maze
         for (int row=0; row < maze.length; row++) 
         {
             for (int col=0; col < maze[0].length; col++) {
-                maze[row][col].reset();
+                if (maze[row][col].getType() == 4  || maze[row][col].getType() == 5 || 
+                maze[row][col].getType() == 6) 
+                {
+                    maze[row][col] = new Square (row, col, 0);
+                }
             }
         }
     }
@@ -127,6 +129,7 @@ public class Maze
             for (int col=0; col < maze[0].length; col++) {
                 toReturn = toReturn + maze[row][col].toString();
             }
+            toReturn+= "\n";
         }
         return toReturn;
     }

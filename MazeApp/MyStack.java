@@ -38,7 +38,15 @@ public class MyStack<T> implements StackADT<T>
 
     public T top()
     {
-        return arrayList.get(arrayList.size()-1);
+        if(arrayList.size() >0)
+        {
+            return arrayList.get(arrayList.size()-1);
+        }
+        else
+        {
+            throw new NoSuchElementException();
+        }
+        
     }  
     
     public int size()
