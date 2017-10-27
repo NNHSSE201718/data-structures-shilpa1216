@@ -96,4 +96,22 @@ public class BinaryTree
       result.root = root.right;
       return result;
    }
+   
+   private static int countNodesWithOneChild(Node n)
+   {
+       if (n == null)
+       {
+           return 0;
+        }
+       else
+       {
+           return 1;
+        }
+    }
+    
+   public int countNodesWithOneChild()
+   {
+       return countNodesWithOneChild(root);
+   
+    }
 }
