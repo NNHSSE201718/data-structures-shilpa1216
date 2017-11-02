@@ -49,7 +49,7 @@ public class GuessingGame
          if (left.isEmpty() && right.isEmpty())
          {
             System.out.println(current.data());
-            done = true;
+            
          }
          else
          {
@@ -57,6 +57,7 @@ public class GuessingGame
             {
                System.out.print(current.data() + " (Y/N) ");
                response = in.nextLine().toUpperCase();
+               
             }
             while (!response.equals("Y") && !response.equals("N"));
 
