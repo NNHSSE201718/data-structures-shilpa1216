@@ -86,6 +86,7 @@ public class BinaryTree
         return result;
     }
 
+<<<<<<< HEAD
     /**
     Gets the right subtree of this tree.
     @return the right child of the root
@@ -111,5 +112,34 @@ public class BinaryTree
         }
 
         return count;
+=======
+   /**
+      Gets the right subtree of this tree.
+      @return the right child of the root
+   */
+   public BinaryTree right()
+   {
+      BinaryTree result = new BinaryTree();
+      result.root = root.right;
+      return result;
+   }
+   
+   private static int countNodesWithOneChild(Node n)
+   {
+       if (n == null)
+       {
+           return 0;
+        }
+       else
+       {
+           return 1;
+        }
+    }
+    
+   public int countNodesWithOneChild()
+   {
+       return countNodesWithOneChild(root);
+   
+>>>>>>> 2c9edf484be279de78af54f59036e956b1bfc137
     }
 }

@@ -2,6 +2,7 @@
 dependency1.from=TreeDemo
 dependency1.to=BinaryTree
 dependency1.type=UsesDependency
+<<<<<<< HEAD
 objectbench.height=90
 objectbench.width=758
 package.divider.horizontal=0.6
@@ -10,6 +11,16 @@ package.editor.height=377
 package.editor.width=652
 package.editor.x=96
 package.editor.y=96
+=======
+objectbench.height=155
+objectbench.width=760
+package.divider.horizontal=0.6
+package.divider.vertical=0.6766467065868264
+package.editor.height=332
+package.editor.width=670
+package.editor.x=-32000
+package.editor.y=-32000
+>>>>>>> 2c9edf484be279de78af54f59036e956b1bfc137
 package.frame.height=600
 package.frame.width=800
 package.numDependencies=1
@@ -28,12 +39,20 @@ target1.type=ClassTarget
 target1.typeParameters=
 target1.width=90
 target1.x=190
+<<<<<<< HEAD
 target1.y=10
+=======
+target1.y=0
+>>>>>>> 2c9edf484be279de78af54f59036e956b1bfc137
 target2.height=50
 target2.name=BinaryTree
 target2.showInterface=false
 target2.type=ClassTarget
 target2.typeParameters=
 target2.width=90
+<<<<<<< HEAD
 target2.x=190
+=======
+target2.x=180
+>>>>>>> 2c9edf484be279de78af54f59036e956b1bfc137
 target2.y=70

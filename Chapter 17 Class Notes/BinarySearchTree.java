@@ -74,7 +74,6 @@ public class BinarySearchTree
     public void remove(Comparable obj)
     {
         // find the node to be removed
-
         Node toBeRemoved = this.root;
         Node parent = null;
         boolean found = false;
@@ -107,11 +106,63 @@ public class BinarySearchTree
             
         }
         
+        
         //toBeRemoved refers to the element to remove
         
         //if one of the children is empty, use the other child
+        if(toBeRemoved.left == null || toBeRemoved.right == null)
+        {
+            Node newChild;
+            if (toBeRemoved.left == null)
+            {
+                newChild = toBeRemoved.right;
+            }
+            else 
+            {
+                newChild = toBeRemoved.left;
+            }
+            
+            if (parent == null)
+            {
+                root = newChild;
+            }
+            else if (parent.left == toBeRemoved)
+            {
+                parent.left = newChild;
+            }
+            else
+            {
+                parent.right = newChild;
+            }
+            return;
+        }
         
         
+        //neither subtree of the node to be removed is empty        
+        //find the smallest element of the right subtree
+        Node smallestParent = toBeRemoved;
+        Node smallest = toBeRemoved.right;
+        
+        while (smallest.left != null)
+        {
+            smallestParent = smallest;
+            smallest = smallest.left;
+        }
+        // smallest contains the smallest child in the right subtree
+        
+        
+        //move data
+        toBeRemoved.data = smallest.data;
+        
+        //unlink child
+        if (smallestParent == toBeRemoved)
+        {
+            toBeRemoved.right = smallest.right;
+        }
+        else
+        {
+            smallestParent.left = smallest.right;
+            }
     }
 
     /**
