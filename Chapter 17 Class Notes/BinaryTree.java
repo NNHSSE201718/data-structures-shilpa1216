@@ -59,7 +59,7 @@ public class BinaryTree
         else
         {
             return 1 + Math.max (BinaryTree.height(n.left), BinaryTree.
-                                                height(n.right));
+                height(n.right));
         }
     }
 
@@ -110,11 +110,69 @@ public class BinaryTree
         BinaryTree subtree = new BinaryTree();
         subtree.root = this.root.right;
         return subtree;
-        
+
     }
-    
-    public int countNodesWithOneChild()
+
+    /**
+     * A visitor whos visit mehtod is called for each visited node during a tree 
+     * traversal.
+     */
+
+    public interface Visitor
     {
+        /**
+         * This method is called for each visited node. 
+         * @param   data  the data of the node
+         */
+        void visit(Object data);
+
+    }
+    public void preOrder(Visitor v)
+    {
+        BinaryTree.preOrder(this.root, v);
+    }
+
+    private static void preOrder(Node n, Visitor v)
+    {
+        if (n== null)
+        {
+            return;
+        }
+        
+        v.visit(n.data);
+    }
+
+    
+    public void postOrder(Visitor v)
+    {
+        BinaryTree.postOrder(this.root, v);
+    }
+
+    private static void postOrder(Node n, Visitor v)
+    {
+        if (n== null)
+        {
+            return;
+        }
+        
+        v.visit(n.data);
+    }
+
+    public void inOrder(Visitor v)
+    {
+        BinaryTree.inOrder(this.root, v);
+    }
+
+    private static void inOrder(Node n, Visitor v)
+    {
+        if (n== null)
+        {
+            return;
+        }
+        
+        inOrder(n.left,v);
+        v.visit(n.data);
+        inOrder(n.right, v);
         
     }
 }

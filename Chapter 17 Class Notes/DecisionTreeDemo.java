@@ -20,36 +20,37 @@ public class DecisionTreeDemo
                new BinaryTree("It is a penguin."),
                new BinaryTree("It is an ostrich."))));
 
-      boolean done = false;
-      Scanner in = new Scanner(System.in);
-      while (!done)
-      {
-         BinaryTree left = questionTree.left();
-         BinaryTree right = questionTree.right();
-         if (left.isEmpty() && right.isEmpty())
-         {
-            System.out.println(questionTree.data());
-            done = true;
-         }
-         else
-         {
-            String response;
-            do
-            {
-               System.out.print(questionTree.data() + " (Y/N) ");
-               response = in.next().toUpperCase();
-            } 
-            while (!response.equals("Y") && !response.equals("N"));
+      // boolean done = false;
+      // Scanner in = new Scanner(System.in);
+      // while (!done)
+      // {
+         // BinaryTree left = questionTree.left();
+         // BinaryTree right = questionTree.right();
+         // if (left.isEmpty() && right.isEmpty())
+         // {
+            // System.out.println(questionTree.data());
+            // done = true;
+         // }
+         // else
+         // {
+            // String response;
+            // do
+            // {
+               // System.out.print(questionTree.data() + " (Y/N) ");
+               // response = in.next().toUpperCase();
+            // } 
+            // while (!response.equals("Y") && !response.equals("N"));
 
-            if (response.equals("Y"))
-            {
-               questionTree = left;         
-            }
-            else
-            {
-               questionTree = right;         
-            }
-         }
-      }
+            // if (response.equals("Y"))
+            // {
+               // questionTree = left;         
+            // }
+            // else
+            // {
+               // questionTree = right;         
+            // }
+         // }
+      // }
+      
    }
 }
