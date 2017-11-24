@@ -62,12 +62,12 @@ public class Maze
             neighbors.add(maze[row-1][col]);
         }
 
-        if (!(col == maze[0].length))
+        if (!(col == maze[0].length-1))
         {
             neighbors.add(maze[row][col+1]);
         }
 
-        if (!(row == maze.length))
+        if (!(row == maze.length-1))
         {
             neighbors.add(maze[row+1][col]);
         }

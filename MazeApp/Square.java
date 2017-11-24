@@ -41,7 +41,7 @@ public class Square
 
     public String toString()
     {
-        if (this.type == 0)
+        if (this.type == 0) 
         {
             return "_";
         }
