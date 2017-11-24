@@ -10,7 +10,7 @@ import java.util.LinkedList;
 public class MyQueue<T> implements QueueADT<T> 
 {
     // instance variables - replace the example below with your own
-    private Node<T> first;
+    private Node<T> first; 
     private int size;
     public MyQueue()
     {

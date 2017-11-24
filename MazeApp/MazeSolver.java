@@ -29,7 +29,7 @@ public abstract class MazeSolver
 
     public boolean isSolved()
     {
-        if (isEmpty() || this.getPath().equals("No such path"))
+        if (isEmpty() || isSolved)
         {
             return true;
         }
@@ -44,7 +44,7 @@ public abstract class MazeSolver
         {
             s+= "[" + next().getRow() + "," + next().getCol() + "]";
         }
-        return s;
+        return s; 
     }
 
     public Square step()
@@ -56,8 +56,9 @@ public abstract class MazeSolver
             {
                 if (sq.getType() == 3)
                 {
+                    isSolved = true;
                     System.out.print(getPath());
-                    return null;
+                    return sq;
                 }
                 else
                 {

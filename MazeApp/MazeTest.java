@@ -85,8 +85,13 @@ public class MazeTest
         neighbors.add(new Square(2,3,0));
         neighbors.add(new Square(3,2,0));
         neighbors.add(new Square(2,1,1));        
-        assertEquals(neighbors, maze.getNeighbors(new Square(2,2,0)));
+        assertEquals(neighbors, maze.getNeighbors(new Square(2,2,0))); 
         
+    }
+    
+    @Test
+    public void testReset()
+    {
     }
 
     
