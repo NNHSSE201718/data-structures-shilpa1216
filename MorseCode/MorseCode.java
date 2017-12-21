@@ -77,7 +77,7 @@ public class MorseCode
         TreeNode current = decodeTree;
         for ( int i = 0; i < code.length(); i++)
         {
-            if (code.charAt(i) == '.')
+            if (code.charAt(i) == '.') 
             {
                 if(current.getLeft() == null)
                 {
@@ -89,7 +89,7 @@ public class MorseCode
                     current = current.getLeft();
                 }
             }
-            else
+            else if (code.charAt(i) == DASH)
             {
                 if(current.getRight() == null)
                 {
@@ -117,7 +117,7 @@ public class MorseCode
 
         for (int i = 0; i < text.length(); i++)
         {
-            String add = codeMap.get(text.charAt(i));
+            String add = codeMap.get(text.toUpperCase().charAt(i));
             if( add != null)
             {
                 morse.append(add);
